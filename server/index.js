@@ -11,13 +11,28 @@ const __dirname = path.dirname(__filename);
 
 // Carregar variáveis de ambiente
 // Em produção (Render), as variáveis vêm do painel de configuração
-// Em desenvolvimento, carrega do arquivo .env
+// Em desenvolvimento, carrega do arquivo .env.dev
+// Em produção local, pode carregar do .env.prod
 const nodeEnv = process.env.NODE_ENV || 'development';
 if (nodeEnv === 'development') {
-  dotenv.config();
-  console.log('📝 Modo desenvolvimento: carregando .env');
+  // Tentar carregar .env.dev primeiro, depois .env como fallback
+  const devResult = dotenv.config({ path: '.env.dev' });
+  if (devResult.error) {
+    // Se .env.dev não existir, tenta .env
+    dotenv.config();
+    console.log('📝 Modo desenvolvimento: carregando .env');
+  } else {
+    console.log('📝 Modo desenvolvimento: carregando .env.dev');
+  }
 } else {
-  console.log('🚀 Modo produção: usando variáveis de ambiente do sistema');
+  // Em produção, tentar carregar .env.prod se existir (útil para testes locais)
+  // No Render, as variáveis vêm do painel, mas .env.prod pode ser útil
+  const prodResult = dotenv.config({ path: '.env.prod' });
+  if (prodResult.error) {
+    console.log('🚀 Modo produção: usando variáveis de ambiente do sistema (Render)');
+  } else {
+    console.log('🚀 Modo produção: carregando .env.prod (variáveis do sistema têm prioridade)');
+  }
 }
 
 const app = express();
@@ -28,6 +43,7 @@ const allowedOrigins = [
   process.env.FRONTEND_URL,
   'http://localhost:5173',
   'https://engrena-sistema-de-gestao.onrender.com',
+  'https://engrena.netlify.app', // Frontend em produção no Netlify
   process.env.RENDER_EXTERNAL_URL
 ].filter(Boolean); // Remove valores undefined/null
 
@@ -37,11 +53,16 @@ app.use(cors({
     // Permitir requisições sem origin (mobile apps, Postman, etc)
     if (!origin) return callback(null, true);
     
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else if (process.env.NODE_ENV === 'development') {
+      // Em desenvolvimento, permitir qualquer origem
       callback(null, true);
     } else {
-      console.warn(`⚠️  CORS bloqueado para origem: ${origin}`);
-      callback(null, true); // Permitir temporariamente para debug
+      // Em produção, logar mas permitir para evitar bloqueios
+      console.warn(`⚠️  CORS: origem não configurada: ${origin}`);
+      console.warn(`💡 Adicione ${origin} à variável FRONTEND_URL ou à lista allowedOrigins`);
+      callback(null, true); // Permitir para não quebrar o sistema
     }
   },
   credentials: true
