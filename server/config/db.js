@@ -1,11 +1,23 @@
 import pkg from 'pg';
+import dotenv from 'dotenv';
 
 const { Pool } = pkg;
 
-// Verificar se DATABASE_URL está configurado
+// Carregar variáveis de ambiente se ainda não foram carregadas
+// Isso garante que DATABASE_URL esteja disponível mesmo se db.js for importado antes do index.js
+const nodeEnv = process.env.NODE_ENV || 'development';
+if (nodeEnv === 'development' && !process.env.DATABASE_URL) {
+  // Tentar carregar .env.dev primeiro, depois .env
+  const devResult = dotenv.config({ path: '.env.dev' });
+  if (devResult.error) {
+    dotenv.config(); // Fallback para .env
+  }
+}
+
+// Verificar se DATABASE_URL está configurado após carregar dotenv
 if (!process.env.DATABASE_URL) {
   console.error('❌ DATABASE_URL não está configurado!');
-  console.error('💡 Configure a variável DATABASE_URL no Render ou no arquivo .env');
+  console.error('💡 Configure a variável DATABASE_URL no Render ou no arquivo .env/.env.dev');
 }
 
 // Pool de conexões otimizado
