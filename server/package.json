@@ -1,0 +1,34 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed:clientes": "node seed-clientes.js",
+    "seed:clientes:force": "node seed-clientes.js --force",
+    "seed:veiculos": "node seed-veiculos.js",
+    "seed:veiculos:force": "node seed-veiculos.js --force",
+    "fix:status-pecas": "node scripts/fixStatusAguardandoPecas.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "bwip-js": "^4.8.0",
+    "cloudinary": "^1.41.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^7.0.10",
+    "pdfkit": "^0.17.2",
+    "pg": "^8.16.3"
+  }
+}

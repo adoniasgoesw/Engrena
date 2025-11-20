@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+    <infNFe Id="NFe35251100000000000000550010000000161189949035" versao="4.00">
+
+        <ide>
+            <cUF>35</cUF>
+            <cNF>06832672</cNF>
+            <natOp>Venda de mercadoria / Prestação de serviços</natOp>
+            <mod>55</mod>
+            <serie>1</serie>
+            <nNF>000000016</nNF>
+            <dhEmi>2025-11-13T03:00:00.000-03:00</dhEmi>
+            <tpNF>1</tpNF>
+            <idDest>1</idDest>
+            <cMunFG>3550308</cMunFG>
+            <tpImp>1</tpImp>
+            <tpEmis>1</tpEmis>
+            <cDV>5</cDV>
+            <tpAmb>2</tpAmb>
+            <finNFe>1</finNFe>
+            <indFinal>1</indFinal>
+            <indPres>1</indPres>
+        </ide>
+
+        <emit>
+            <CNPJ>00000000000000</CNPJ>
+            <xNome>DevClub</xNome>
+            <enderEmit>
+                <xLgr>Libertação Camponesa, Cozinhador</xLgr>
+                <nro>S/N</nro>
+                <xBairro>Centro</xBairro>
+                <cMun>3550308</cMun>
+                <xMun>--</xMun>
+                <UF>--</UF>
+                <CEP>00000000</CEP>
+            </enderEmit>
+            <IE>ISENTO</IE>
+            <CRT>1</CRT>
+        </emit>
+
+        <dest>
+            <CNPJ>12345678000190</CNPJ>
+            <xNome>Oficina Mecânica ABC Ltda</xNome>
+            <enderDest>
+                <xLgr>Rua Comercial</xLgr>
+                <nro>500</nro>
+                <xBairro>Rua Comercial</xBairro>
+                <cMun>3550308</cMun>
+                <xMun>Vila Industrial - São Paulo</xMun>
+                <UF>SP</UF>
+                <CEP>03000000</CEP>
+            </enderDest>
+            <indIEDest>9</indIEDest>
+        </dest>
+
+        <det nItem="1">
+            <prod>
+                <cProd>001</cProd>
+                <cEAN>SEM GTIN</cEAN>
+                <xProd>Pneu Aro 14 Goodyear Assurance</xProd>
+                <NCM>49019900</NCM>
+                <CFOP>5102</CFOP>
+                <uCom>UN</uCom>
+                <qCom>1.00</qCom>
+                <vUnCom>420.00</vUnCom>
+                <vProd>420.00</vProd>
+                <cEANTrib>SEM GTIN</cEANTrib>
+                <uTrib>UN</uTrib>
+                <qTrib>1.00</qTrib>
+                <vUnTrib>420.00</vUnTrib>
+                <indTot>1</indTot>
+            </prod>
+            <imposto>
+                <ICMS>
+                    <ICMS00>
+                        <orig>0</orig>
+                        <CST>00</CST>
+                        <modBC>3</modBC>
+                        <vBC>420.00</vBC>
+                        <pICMS>18.00</pICMS>
+                        <vICMS>75.60</vICMS>
+                    </ICMS00>
+                </ICMS>
+            </imposto>
+        </det>
+
+        <det nItem="2">
+            <prod>
+                <cProd>002</cProd>
+                <cEAN>SEM GTIN</cEAN>
+                <xProd>Pneu Aro 13 Pirelli Cinturato P1</xProd>
+                <NCM>49019900</NCM>
+                <CFOP>5102</CFOP>
+                <uCom>UN</uCom>
+                <qCom>1.00</qCom>
+                <vUnCom>360.00</vUnCom>
+                <vProd>360.00</vProd>
+                <cEANTrib>SEM GTIN</cEANTrib>
+                <uTrib>UN</uTrib>
+                <qTrib>1.00</qTrib>
+                <vUnTrib>360.00</vUnTrib>
+                <indTot>1</indTot>
+            </prod>
+            <imposto>
+                <ICMS>
+                    <ICMS00>
+                        <orig>0</orig>
+                        <CST>00</CST>
+                        <modBC>3</modBC>
+                        <vBC>360.00</vBC>
+                        <pICMS>18.00</pICMS>
+                        <vICMS>64.80</vICMS>
+                    </ICMS00>
+                </ICMS>
+            </imposto>
+        </det>
+
+        <det nItem="3">
+            <prod>
+                <cProd>003</cProd>
+                <cEAN>SEM GTIN</cEAN>
+                <xProd>Pneu Aro 15 Goodyear</xProd>
+                <NCM>49019900</NCM>
+                <CFOP>5102</CFOP>
+                <uCom>UN</uCom>
+                <qCom>1.00</qCom>
+                <vUnCom>480.00</vUnCom>
+                <vProd>480.00</vProd>
+                <cEANTrib>SEM GTIN</cEANTrib>
+                <uTrib>UN</uTrib>
+                <qTrib>1.00</qTrib>
+                <vUnTrib>480.00</vUnTrib>
+                <indTot>1</indTot>
+            </prod>
+            <imposto>
+                <ICMS>
+                    <ICMS00>
+                        <orig>0</orig>
+                        <CST>00</CST>
+                        <modBC>3</modBC>
+                        <vBC>480.00</vBC>
+                        <pICMS>18.00</pICMS>
+                        <vICMS>86.40</vICMS>
+                    </ICMS00>
+                </ICMS>
+            </imposto>
+        </det>
+
+        <det nItem="4">
+            <prod>
+                <cProd>004</cProd>
+                <cEAN>SEM GTIN</cEAN>
+                <xProd>Pneu</xProd>
+                <NCM>49019900</NCM>
+                <CFOP>5102</CFOP>
+                <uCom>UN</uCom>
+                <qCom>2.00</qCom>
+                <vUnCom>444.00</vUnCom>
+                <vProd>888.00</vProd>
+                <cEANTrib>SEM GTIN</cEANTrib>
+                <uTrib>UN</uTrib>
+                <qTrib>2.00</qTrib>
+                <vUnTrib>444.00</vUnTrib>
+                <indTot>1</indTot>
+            </prod>
+            <imposto>
+                <ICMS>
+                    <ICMS00>
+                        <orig>0</orig>
+                        <CST>00</CST>
+                        <modBC>3</modBC>
+                        <vBC>888.00</vBC>
+                        <pICMS>18.00</pICMS>
+                        <vICMS>159.84</vICMS>
+                    </ICMS00>
+                </ICMS>
+            </imposto>
+        </det>
+
+        <total>
+            <ICMSTot>
+                <vBC>2148.00</vBC>
+                <vICMS>386.64</vICMS>
+                <vProd>2148.00</vProd>
+                <vNF>2148.00</vNF>
+            </ICMSTot>
+        </total>
+
+        <transp>
+            <modFrete>9</modFrete>
+        </transp>
+
+        <pag>
+            <detPag>
+                <tPag>01</tPag>
+                <vPag>2148.00</vPag>
+            </detPag>
+        </pag>
+
+        <infAdic>
+            <infCpl>Ordem de Serviço: OS-1763049743372-213. Documento gerado automaticamente pelo sistema.</infCpl>
+        </infAdic>
+
+    </infNFe>
+</NFe>

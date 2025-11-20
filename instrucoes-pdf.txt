@@ -1,0 +1,50 @@
+PARA GERAR O PDF COM LINKS CLICÁVEIS:
+
+1. Abra o arquivo curriculo.html no Chrome ou Edge
+2. Pressione Ctrl + P (ou Menu > Imprimir)
+3. Configure:
+   - Destino: Salvar como PDF
+   - Mais configurações:
+     * Margens: Padrão
+     * Escalas: Padrão
+     * Opções: Marque "Mais configurações" > "Imprimir segundo plano/Imagem"
+4. Clique em "Salvar"
+
+IMPORTANTE: Para que os links fiquem clicáveis no PDF:
+- No Chrome/Edge, em Configurações de impressão avançadas, marque "Mais configurações" 
+- Isso garante que os links sejam mantidos no PDF
+
+ALTERNATIVA - Converta online:
+- Use sites como: html2pdf.com ou ilovepdf.com/html-to-pdf
+- Faça upload do arquivo curriculo.html
+- Configure para manter links ativos
+- Baixe o PDF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

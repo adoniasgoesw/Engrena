@@ -27,6 +27,11 @@ Thumbs.db
 client/src/assets/Downloads/*.jpg
 client/src/assets/Downloads/*.br_post_*
 
+# Arquivos executáveis grandes
+client/src/assets/Downloads/*.exe
+client/src/assets/Downloads/*.msi
+client/src/assets/Downloads/*.zip
+
 # Temporary files
 temp_*.js
 *.tmp

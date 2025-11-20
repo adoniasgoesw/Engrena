@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Esconder todas as barras de rolagem */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Permitir rolagem horizontal para categorias */
+.categorias-scroll {
+  scrollbar-width: thin; /* Firefox */
+  -ms-overflow-style: auto; /* IE and Edge */
+}
+
+.categorias-scroll::-webkit-scrollbar {
+  display: block;
+  height: 6px;
+}
+
+.categorias-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.categorias-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.categorias-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Remover borda de foco padrão do navegador na SearchBar */
+#search-input:focus,
+#search-input:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Blur muito leve para overlay */
+.backdrop-blur-xs {
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}

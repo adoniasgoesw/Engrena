@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Homem-Aranha 3D (Exemplo)</title>
+  <style>
+    body { margin: 0; background-color: #000; overflow: hidden; }
+    #loading { 
+      position: absolute; top: 50%; left: 50%; 
+      transform: translate(-50%, -50%);
+      color: white; font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">Carregando modelo 3D...</div>
+
+  <!-- Importa Three.js e extensões -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Luz ambiente e direcional
+    const ambient = new THREE.AmbientLight(0xffffff, 1.5);
+    scene.add(ambient);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 10, 5);
+    scene.add(dirLight);
+
+    // Controles de câmera (girar e dar zoom)
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    camera.position.set(0, 1.5, 3);
+    controls.update();
+
+    // Loader GLTF
+    const loader = new THREE.GLTFLoader();
+    // modelo humano genérico gratuito do Sketchfab (substitua aqui depois)
+    const MODEL_URL = "https://threejs.org/examples/models/gltf/RobotExpressive/RobotExpressive.glb";
+
+    loader.load(MODEL_URL, function (gltf) {
+      const model = gltf.scene;
+      model.scale.set(1.5, 1.5, 1.5);
+      scene.add(model);
+      document.getElementById('loading').style.display = 'none';
+    }, undefined, function (error) {
+      console.error(error);
+      document.getElementById('loading').textContent = 'Erro ao carregar modelo!';
+    });
+
+    // Ajusta tela
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Animação
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>
