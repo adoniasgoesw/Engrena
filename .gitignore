@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos com nomes muito longos
+client/src/assets/Downloads/*.jpg
+client/src/assets/Downloads/*.br_post_*
+
+# Temporary files
+temp_*.js
+*.tmp
+
