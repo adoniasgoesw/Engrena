@@ -1,16 +1,19 @@
 import pkg from 'pg';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const { Pool } = pkg;
+
+// Verificar se DATABASE_URL está configurado
+if (!process.env.DATABASE_URL) {
+  console.error('❌ DATABASE_URL não está configurado!');
+  console.error('💡 Configure a variável DATABASE_URL no Render ou no arquivo .env');
+}
 
 // Pool de conexões otimizado
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false, // Necessário para Neon DB
-  },
+  ssl: process.env.DATABASE_URL?.includes('sslmode=require') || process.env.DATABASE_URL?.includes('neon.tech') 
+    ? { rejectUnauthorized: false } // Necessário para Neon DB e alguns outros serviços
+    : undefined,
   // Configurações do Pool
   max: 20, // Máximo de 20 conexões simultâneas
   idleTimeoutMillis: 30000, // Fecha conexões ociosas após 30 segundos
